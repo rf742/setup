@@ -17,8 +17,8 @@ echo '---------------------------------------------'
  
 sudo apt update
 sudo apt upgrade
-sudo apt install groff ranger zathura zathura-djvu pandoc pandoc-citeproc wget curl neofetch asunder abiword cmus i3 xorg terminator feh firefox-esr fish zsh vim-gtk -y
-echo 'exec i3' > ~/.xinitrc
+sudo apt install groff ranger zathura zathura-djvu wget curl neofetch asunder cmus openbox xorg terminator feh firefox-esr fish vim-gtk -y
+echo 'exec openbox' > ~/.xinitrc
 
 
 read -p "Are we installing emacs(y/n)?" bloat
@@ -53,16 +53,19 @@ git clone https://github.com/honza/vim-snippets.git;
 ########################
 ## defaulting to zsh ###
 ########################
-#cd;
-#chsh -s /usr/bin/zsh;
+cd;
+chsh -s `which fish`;
 
 
 # Installing Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh;
 
 # set up wallpaper
-echo 'feh --bg-max --randomize ~/git/dotfiles/wp/* &' >> ~/.xinitrc
+mkdir ~/wp
+echo 'feh --bg-max --randomize ~/wp/* &' >> ~/.xinitrc
 
 
 echo 'Done'
 echo 'Dotfiles still need to be installed.'
+echo 'logout and back in to change to the fish shell'
+echo 'place any wallpapers in ~/wp to have feh randomly load one upon login'
