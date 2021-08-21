@@ -1,5 +1,5 @@
 #! /bin/sh
 
-ln -svf ./.vimrc ~/.vimrc
-ln -svf ./.gitconfig ~/.gitconfig
-ln -svf ./.zshrc ~/.zshrc
+ln -svf "$HOME/git/setup/.vimrc" "$HOME/.vimrc"
+ln -svf "$HOME/git/setup/.zshrc" "$HOME/.zshrc"
+ln -svf "$HOME/git/setup/.gitconfig" "$HOME/.gitconfig"
