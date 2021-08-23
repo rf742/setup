@@ -11,8 +11,11 @@ echo '---------------------------------------------'
 # echo 'permit me as root' > /etc/doas.conf
 ## now logout and log back in as user
 
-
-doas apk add git groff ranger wget curl neofetch tmux cmus zsh vim
+doas setup-xorg-base
+doas apk add git groff ranger wget curl neofetch tmux cmus zsh vim lsblk xf86-video-intel dwm dmenu st feh
+echo 'exec dwm' > "$HOME/.xinitrc"
+doas addgroup me video
+doas addgroup me input
 
 
 ###########################################
@@ -28,6 +31,7 @@ cd ~/.vim/bundle;
 git clone https://github.com/SirVer/ultisnips.git;
 # install the snippets themselves
 git clone https://github.com/honza/vim-snippets.git;
+
 
 
 echo 'Done.'
