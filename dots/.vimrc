@@ -9,7 +9,7 @@ execute pathogen#infect()
 	autocmd BufRead,BufNewFile *.ms set filetype=groff
 
 
-colorscheme ron
+colorscheme nord
 
 " shortcuts for saving, quitting and compiling
 	map <leader>q :q<enter>
