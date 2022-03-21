@@ -1,11 +1,13 @@
-alias nb='newsboat'
 alias v='vim'
+
+alias ls='ls -GF'
 alias la='ls -A'
 alias ll='ls -alF'
-alias g='cd ~/git && ls'
-alias docs='cd ~/Documents && ls'
-alias down='cd ~/Downloads && ls'
+
+alias gad='git add .'
 alias gcm='git commit -m '
-alias wp='cd ~/Pictures/wp'
+alias gpom='git push origin master'
+
 alias lbin='cd ~/.local/bin'
 alias vrc='vim ~/.vimrc'
+alias zrc='vim ~/.zshrc'
