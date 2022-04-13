@@ -8,6 +8,12 @@ execute pathogen#infect()
 " Read files correctly
 	autocmd BufRead,BufNewFile *.ms set filetype=groff
 
+" Open file navigator in vertical split 
+	map <leader>f :Vex<enter>
+
+" Get ready to open file in new tab
+	map <leader>t :tabe<space>
+
 " shortcuts for saving, quitting and compiling
 	map <leader>q :q<enter>
 	map <leader>w :w<enter>
