@@ -1,0 +1,56 @@
+#! /bin/sh
+
+__ScriptVersion="0.1"
+
+#===  FUNCTION  ================================================================
+#         NAME:  usage
+#  DESCRIPTION:  Display usage information.
+#===============================================================================
+function usage ()
+{
+	echo "Usage :  $0 [options] [--]
+
+    Options:
+    -h          Display this message
+    -v          Display script version
+    -p BIB      Specify a bib file for refer
+    -i INFILE   Specify input file name   [MANDATORY]
+    -o OUTFILE  Specify output file name  [MANDATORY]"
+
+}    # ----------  end of function usage  ----------
+
+#-----------------------------------------------------------------------
+#  Handle command line arguments
+#-----------------------------------------------------------------------
+
+
+while getopts ":hvp:i:o:" opt
+do
+  case $opt in
+
+	h	)  usage; exit 0   ;;
+
+	v	)  echo "$0	 -- Version $__ScriptVersion"; exit 0   ;;
+
+	p)	P=$OPTARG   ;;
+	i)	i=$OPTARG   ;;
+	o)	o=$OPTARG   ;;
+
+	*)	echo -e "\n  Option does not exist : $OPTARG\n"
+		  usage; exit 1   ;;
+
+  esac    # --- end of case ---
+done
+shift $(($OPTIND-1))
+
+if [[ -z $i ]] || [[ -z $o ]]; then
+	usage; exit 0;
+fi
+
+if [[ -n "$P" ]]; then
+	echo "P is $P"
+	refer -p"$P" "$i" | groff -ms -ejt -Tpdf > "$2"
+else
+	groff "$i" -ms -ejt -Tpdf > "$o"
+fi
+

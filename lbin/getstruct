@@ -1,0 +1,61 @@
+#!/usr/bin/env python3
+
+import sys
+import subprocess
+from urllib.request import urlopen
+from urllib.error import HTTPError
+
+# This program automatically grabs images of molecules from the internet
+# This is used by me as within vim, calling it with a map in my vimrc to
+# grab a picture of the molecule named under the cursor, and put it in 
+# the current directory (mainly used in making markdown files).
+
+version = "0.1.0"
+def usage():
+    print(f"Usage -- {sys.argv[0]} NAME")
+    print(f"Name: IUPAC/common name of compound to aquire image of.")
+if len(sys.argv) != 2:
+    usage()
+    sys.exit(1)
+name = str(sys.argv[1])
+smile_url ="https://cactus.nci.nih.gov/chemical/structure/" + name + "/smiles"
+outfile = f"{name}.png"
+try: 
+    with urlopen(smile_url) as f:
+        smile = str(f.read().decode("UTF-8"))
+        print(smile)
+except HTTPError:
+    print("HTTP Error")
+pic_url = "http://new-c1ccccc1-34.ics.uci.edu:8081/arrow-webapp/ArrowWebService?action=smi2png&smiles="+smile+"&width=800&height=400&arrowdesc=&extraImageSetting=amap"
+try: 
+    with urlopen(pic_url) as f:
+        mypic = open(outfile, "wb")
+        mypic.write(f.read())
+        mypic.close()
+        print("done!")
+        print(f"file saved at {outfile}")
+except HTTPError:
+    print("HTTP Error")
+
+# Backup method to get low quality images from nih
+"""
+username = str(sys.argv[1])
+gfile = username+".gif"
+jfile = username+".jpeg"
+url = ("https://cactus.nci.nih.gov/chemical/structure/" + username + "/image")
+try: 
+    with urlopen(url) as f:
+        
+        mypic = open(gfile, "wb")
+        mypic.write(f.read())
+        mypic.close()
+        print("done!")
+        print(f"file saved at {username}.gif")
+except HTTPError:
+    print("No such user!")
+# now convert gif to jpeg
+print("Converting to jpeg...")
+subprocess.run(['sips','-s','format','jpeg',gfile,'--out',jfile])
+print("done!")
+"""
+

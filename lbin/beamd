@@ -1,0 +1,55 @@
+#! /bin/sh
+
+# This is a script to compile markdown files into beamer pdfs through pandoc
+
+__ScriptVersion="0.1"
+
+#===  FUNCTION  ================================================================
+#         NAME:  usage
+#  DESCRIPTION:  Display usage information.
+#===============================================================================
+function usage ()
+{
+	echo "Usage :  $0 [options] [--]
+
+    Options:
+    -h|help       Display this message
+    -v|version    Display script version"
+
+}    # ----------  end of function usage  ----------
+
+#-----------------------------------------------------------------------
+#  Handle command line arguments
+#-----------------------------------------------------------------------
+
+if [[ $# -lt 1 ]]; then
+	usage; exit 1
+fi
+
+while getopts ":hv" opt
+do
+  case $opt in
+
+	h|help     )  usage; exit 0   ;;
+
+	v|version  )  echo "$0 -- Version $__ScriptVersion"; exit 0   ;;
+
+	* )  echo -e "\n  Option does not exist : $OPTARG\n"
+		  usage; exit 1   ;;
+
+  esac    # --- end of case ---
+done
+shift $(($OPTIND-1))
+
+
+
+if [[ -n $2 ]]; then
+	pandoc $1 -t beamer -o $2
+elif [[ -n $1 ]]; then
+#https://stackoverflow.com/questions/12152626/how-can-i-remove-the-extension-of-a-filename-in-a-shell-script
+	pdf=${1%.*}.pdf
+	pandoc $1 -t beamer -o $pdf
+else
+fi
+
+

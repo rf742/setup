@@ -11,6 +11,9 @@ execute pathogen#infect()
 " Open file navigator in vertical split 
 	map <leader>f :Vex<enter>
 
+" Open python command to get chemical structure of word under cursor
+ 	map <leader>c yiw:!getstruct<space><C-r>"<enter>
+
 " Get ready to open file in new tab
 	map <leader>t :tabe<space>
 
