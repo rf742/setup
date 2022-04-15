@@ -17,8 +17,16 @@ in markdown files.
 
 Wrapper script for compiling groff MS documents, takes two required arguments:
 
-- -i INPUTFILE
-- -o OUTPUTFILE
+- `-i INPUTFILE`
+- `-o OUTPUTFILE`
 
 It can optionally take the name of a file after the `-p` flag, which will run
 the ms file through refer using the bibliography file specified.
+
+## beamd
+
+Wrapper script to turn markdown files into beamerfiles. Planning on either
+adding functionality to initialize md files (yaml + template) or creating
+a new script to accomplish this.
+
+
