@@ -7,5 +7,6 @@ ln -svf "$PWD/dots/.aliases" "$HOME/.aliases"
 
 
 # symlink ~/.local/bin
+mkdir -p "$HOME/.local/bin"
 cd lbin
 for f in *; do ln -svf $PWD/$f $HOME/.local/bin; done
