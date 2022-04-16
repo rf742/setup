@@ -1,3 +1,4 @@
+#!/usr/bin/env sh
 
 echo '---------------------------------------------'
 echo '-- Welcome to my post installation script! --' 
@@ -12,7 +13,8 @@ echo "installing homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 brew install groff wget neofetch
 
-read -p "Are we installing emacs(y/n)?" bloat
+printf "Are we installing emacs(y/n)?"
+read -r bloat
 case "$bloat" in
 	y|Y ) echo "proceeding..."; 
 		brew install emacs
