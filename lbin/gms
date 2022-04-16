@@ -6,7 +6,7 @@ __ScriptVersion="0.1"
 #         NAME:  usage
 #  DESCRIPTION:  Display usage information.
 #===============================================================================
-function usage ()
+usage ()
 {
 	echo "Usage :  $0 [options] [--]
 
@@ -36,18 +36,18 @@ do
 	i)	i=$OPTARG   ;;
 	o)	o=$OPTARG   ;;
 
-	*)	echo -e "\n  Option does not exist : $OPTARG\n"
+	*)	printf "\n  Option does not exist : %s\n" "$OPTARG"
 		  usage; exit 1   ;;
 
   esac    # --- end of case ---
 done
-shift $(($OPTIND-1))
+shift "$((OPTIND-1))"
 
-if [[ -z $i ]] || [[ -z $o ]]; then
+if [ -z "$i" ] || [ -z "$o" ]; then
 	usage; exit 0;
 fi
 
-if [[ -n "$P" ]]; then
+if [ -n "$P" ]; then
 	echo "P is $P"
 	refer -p"$P" "$i" | groff -ms -ejt -Tpdf > "$2"
 else
