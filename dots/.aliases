@@ -4,10 +4,16 @@ alias ls='ls -GF'
 alias la='ls -A'
 alias ll='ls -alF'
 
-alias gad='git add .'
-alias gcm='git commit -m '
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit'
+alias gl='git log --pretty=oneline'
 alias gpom='git push origin master'
 
 alias lbin='cd ~/.local/bin'
 alias vrc='vim ~/.vimrc'
 alias zrc='vim ~/.zshrc'
+
+alias grep='grep --color=auto'
+
+
