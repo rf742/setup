@@ -1,9 +1,9 @@
-execute pathogen#infect()
 " Some basics
 	filetype plugin on
 	syntax on
 	set encoding=utf-8
 	set number relativenumber
+	set ruler
 
 " Read files correctly
 	autocmd BufRead,BufNewFile *.ms set filetype=groff
@@ -22,6 +22,8 @@ execute pathogen#infect()
 	map <leader>w :w<enter>
 	map <leader>m :!make
 
+" Spell-check set to <leader>o, 'o' for 'orthography':
+	map <leader>o :setlocal spell! spelllang=en_us<CR>
 
 " Shortcutting split navigation, saving a keypress:
 	map <C-h> <C-w>h
@@ -31,12 +33,3 @@ execute pathogen#infect()
 
 " Split right and below
 	set splitbelow splitright
-
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
