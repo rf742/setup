@@ -7,7 +7,7 @@ zstyle ':vcs_info:*' unstagedstr ' *'
 zstyle ':vcs_info:*' stagedstr ' +'
 zstyle ':vcs_info:git:*' formats       '(%b%u%c)'
 zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
-PROMPT='%m %~ %# '
+PROMPT='%~ %# '
 RPROMPT='${vcs_info_msg_0_}'
 # proper vi keybinding
 bindkey -v '^?' backward-delete-char
