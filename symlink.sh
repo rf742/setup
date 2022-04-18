@@ -5,6 +5,8 @@ ln -svf "$PWD/dots/zsh/.zshrc" "$HOME/.config/zsh/.zshrc"
 ln -svf "$PWD/dots/zsh/.zshenv" "$HOME/.zshenv"
 ln -svf "$PWD/dots/zsh/.aliases" "$HOME/.config/zsh/.aliases"
 ln -svf "$PWD/dots/.gitconfig" "$HOME/.gitconfig"
+mkdir -p "$HOME/.config/nvim"
+ln -svf "$PWD/dots/init.vim" "$HOME/.config/nvim/init.vim"
 
 
 # symlink ~/.local/bin
