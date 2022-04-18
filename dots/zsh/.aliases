@@ -1,4 +1,7 @@
-alias v='vim'
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
+
 
 alias ls='ls -GF'
 alias la='ls -A'
@@ -12,7 +15,7 @@ alias gpom='git push origin master'
 
 alias lbin='cd ~/.local/bin'
 alias vrc='vim ~/.vimrc'
-alias zrc='vim ~/.zshrc'
+alias zrc='vim ~/.config/zsh/.zshrc'
 
 alias grep='grep --color=auto'
 
