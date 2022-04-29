@@ -14,7 +14,7 @@ alias gl='git log --pretty=oneline'
 alias gpom='git push origin master'
 
 alias lbin='cd ~/.local/bin'
-alias vrc='vim ~/.vimrc'
+alias vrc='vim ~/.config/nvim/init.vim'
 alias zrc='vim ~/.config/zsh/.zshrc'
 
 alias grep='grep --color=auto'

@@ -4,7 +4,7 @@
 	set encoding=utf-8
 	set number relativenumber
 	set ruler
-
+	let mapleader = ","
 " Read files correctly
 	autocmd BufRead,BufNewFile *.ms set filetype=groff
 

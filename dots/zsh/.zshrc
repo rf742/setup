@@ -14,3 +14,4 @@ bindkey -v '^?' backward-delete-char
 
 source "$HOME/.config/zsh/.aliases"
 path+=("${HOME}/.local/bin")
+PATH=/opt/homebrew/bin:$PATH
