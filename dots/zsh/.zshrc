@@ -1,5 +1,11 @@
 # Set up the prompt
-autoload -Uz vcs_info add-zsh-hook
+autoload -Uz vcs_info add-zsh-hook compinit
+
+zstyle '*completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)
+
 setopt prompt_subst
 add-zsh-hook precmd vcs_info 
 zstyle ':vcs_info:*' check-for-changes true
